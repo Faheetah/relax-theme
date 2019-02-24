@@ -1,8 +1,10 @@
-<div class="card">
-    {{ $image := .Page.Resources.GetMatch (printf "%s.jpg" (.Get 0)) }}
-    {{ if $image }}
-    {{ with $image.Resize "1024x" }}
-    <img src="{{ .RelPermalink }}" class="card-img-top" />
-    {{ end }}
-    {{ end }}
+<div class="padding">
+    <div class="card">
+        {{ $image := .Page.Resources.GetMatch (printf "%s.jpg" (.Get 0)) }}
+        {{ if $image }}
+        {{ with $image.Resize "1024x" }}
+        <img src="{{ .RelPermalink }}" class="card-img-top" />
+        {{ end }}
+        {{ end }}
+    </div>
 </div>
