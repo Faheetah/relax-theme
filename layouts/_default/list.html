@@ -9,7 +9,7 @@
                 <div class="card-head">
                     {{ $image := .Resources.GetMatch (printf "%s.jpg" (.Title|urlize)) }}
                     {{ if $image }}
-                    {{ with $image.Resize "1024x" }}
+                    {{ with $image.Resize "400x" }}
                     <img src="{{ .RelPermalink }}" class="card-img-top" />
                     {{ end }}
                     {{ end }}
