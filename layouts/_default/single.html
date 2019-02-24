@@ -1,7 +1,4 @@
 {{ define "main" }}
-{{ if .Params.map }}
-  {{ partial "map.html" . }}
-{{ else }}
   <!-- Render Default Single Page -->
 
 <div class="text-justify mx-auto w-75">
@@ -24,7 +21,9 @@
         </div>
     </div>
 
+    {{ if .Params.thumbnail }}
     <div class="image thumb-{{ .UniqueID }}"></div>
+    {{ end }}
 
     <div>
         <article>
@@ -52,7 +51,5 @@
         {{ end }}
     </div>
 </div>
-
-{{ end }}
 
 {{ end }}
