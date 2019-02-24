@@ -1,0 +1,58 @@
+{{ define "main" }}
+{{ if .Params.map }}
+  {{ partial "map.html" . }}
+{{ else }}
+  <!-- Render Default Single Page -->
+
+<div class="text-justify mx-auto w-75">
+    <div>
+        <h2>
+            <a href="{{ .Permalink }}">{{ .Title | upper }}</a>
+        </h2>
+        <div class="justify-content-between align-items-center">
+            <small class="text-muted">
+                in <a href="{{ .Site.BaseURL }}/{{ .Section }}">
+                    {{ with .Section }}{{ . | upper }}{{ end }}
+                </a>
+            </small>
+            <small> | </small>
+            <small class="text-muted">
+                <time datetime="{{ .Lastmod.Format "Jan 01, 2006" }}">
+                    {{ .Lastmod.Format "Jan 01, 2006" }}
+                </time>
+            </small>
+        </div>
+    </div>
+
+    <div class="image thumb-{{ .UniqueID }}"></div>
+
+    <div>
+        <article>
+        {{ .Content }}
+        </article>
+
+        {{ with .PrevInSection }}
+        <header>Previous Article</header>
+        <a href="{{ .Permalink }}">
+            <div class="title">{{ .Title }}</div>
+            <time datetime="{{ .Lastmod.Format "2006-01-02T15:04:05JST" }}">
+                {{ .Lastmod.Format ( .Site.Params.dateformat | default "Jan 2, 2006") }}
+            </time>
+        </a>
+        {{ end }}
+
+        {{ with .NextInSection }}
+        <header>Next Article</header>
+        <a href="{{ .Permalink }}">
+            <div class="title">{{ .Title }}</div>
+            <time datetime="{{ .Lastmod.Format "2006-01-02T15:04:05JST" }}">
+                {{ .Lastmod.Format ( .Site.Params.dateformat | default "Jan 2, 2006") }}
+            </time>
+        </a>
+        {{ end }}
+    </div>
+</div>
+
+{{ end }}
+
+{{ end }}

@@ -1,0 +1,12 @@
+name = "Relax"
+license = "MIT"
+licenselink = "https://github.com/faheetah/relax/blob/master/LICENSE.md"
+description = "Recipe oriented Hugo theme"
+homepage = "https://github.com/faheetah/relax"
+tags = ["blog"]
+features = ["responsive", "thumbnail", "grid"]
+min_version = "0.0.0"
+
+[author]
+  name = "Faheetah"
+  homepage = "https://github.com/faheetah"

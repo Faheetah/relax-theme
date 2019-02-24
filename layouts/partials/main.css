@@ -1,0 +1,64 @@
+html, body {
+    /* background-color: #F5F1EE; */
+
+    color: #333333;
+}
+
+.nav-link {
+    color: #333333 !important;
+}
+
+.nav-link:hover {
+    color: #555555 !important;
+}
+
+a {
+    color: #DD5555;
+}
+
+a:hover {
+    color: #FF5555;
+    text-decoration: none;
+}
+
+.logo {
+    color: #333333;
+    font-weight: bold;
+}
+
+hr {
+    margin-top: 0;
+    border: none;
+    border-bottom: 2px solid #333333;
+}
+
+.thumb {
+  background-image: url({{ .Site.BaseURL }}images/default.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 255px;
+}
+
+.image {
+    height: 500px;
+}
+
+article {
+    padding-top: 30px;
+}
+
+{{ range $p := .Site.Pages }}
+{{ with $p.Params.thumbnail }}
+.thumb-{{ $p.UniqueID }} {
+  background-image: url({{ $.Site.BaseURL }}{{ . }});
+}
+{{ end }}
+{{ end }}
+
+ul { 
+    padding-left: 0;
+}
+
+li {
+    list-style-type: none;
+}

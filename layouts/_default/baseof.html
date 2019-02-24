@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{ .Site.Title }}</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}/css/bootstrap.min.css" />
+    <script src="{{ .Site.BaseURL }}/js/bootstrap.min.js"></script>
+    <style>
+      {{ replaceRE " +" " " (replaceRE "\n" "" (partial "main.css" .)) | safeCSS }}
+    </style>
+    {{ .Hugo.Generator }}
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            {{ partial "header.html" . }}
+        </div>
+    </header>
+
+
+    <main role="main">
+
+        <div class="container">
+            <div>
+                {{ block "main" . }}{{ end }}
+            </div>
+        </div>
+
+        <footer>
+            <div class="container">
+                {{ partial "footer.html" . }}
+            </div>
+        </footer>
+</body>
+
+</html>
