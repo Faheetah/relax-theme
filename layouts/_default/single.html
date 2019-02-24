@@ -21,12 +21,14 @@
         </div>
     </div>
 
-    {{ if .Params.thumbnail }}
     <div class="card">
-        <img src="{{ .Site.BaseURL }}{{ .Params.thumbnail }}" class="card-img-top" />
+        {{ $image := .Page.Resources.GetMatch (printf "%s.jpg" (.Title|urlize)) }}
+        {{ if $image }}
+        {{ with $image.Resize "1024x" }}
+        <img src="{{ .RelPermalink }}" class="card-img-top" />
+        {{ end }}
+        {{ end }}
     </div>
-    <div class="image thumb-{{ .UniqueID }}"></div>
-    {{ end }}
 
     <div>
         <article>

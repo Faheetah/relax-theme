@@ -38,13 +38,6 @@ hr {
     border-bottom: 2px solid #333333;
 }
 
-.thumb {
-  background-image: url({{ .Site.BaseURL }}images/default.jpg);
-  background-size: cover;
-  background-position: center;
-  height: 255px;
-}
-
 .image {
     width: 100%;
 }
@@ -52,14 +45,6 @@ hr {
 article {
     padding-top: 30px;
 }
-
-{{ range $p := .Site.Pages }}
-{{ with $p.Params.thumbnail }}
-.thumb-{{ $p.UniqueID }} {
-  background-image: url({{ $.Site.BaseURL }}{{ . }});
-}
-{{ end }}
-{{ end }}
 
 ul { 
     padding-left: 0;

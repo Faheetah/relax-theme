@@ -5,24 +5,33 @@
     <a href="{{ .Permalink }}">
         <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
-                <div class="thumb thumb-{{ .UniqueID }}"></div>
+
+                <div class="card-head">
+                    {{ $image := .Resources.GetMatch (printf "%s.jpg" (.Title|urlize)) }}
+                    {{ if $image }}
+                    {{ with $image.Resize "1024x" }}
+                    <img src="{{ .RelPermalink }}" class="card-img-top" />
+                    {{ end }}
+                    {{ end }}
+                </div>
+
                 <div class="card-body">
                     <div class="d-flex align-items-center">
-                    <h2>
-                        <a href="{{ .Permalink }}">{{ .Title | upper }}</a>
-                    </h2>
-                </div>
-        <small class="text-muted">
-            in <a href="{{ .Site.BaseURL }}/{{ .Section }}">
-                {{ with .Section }}{{ . | upper }}{{ end }}
-            </a>
-        </small>
-        <small> | </small>
-        <small class="text-muted">
-            <time datetime="{{ .Lastmod.Format "Jan 01, 2006" }}">
-                {{ .Lastmod.Format "Jan 01, 2006" }}
-            </time>
-        </small>
+                        <h2>
+                            <a href="{{ .Permalink }}">{{ .Title | upper }}</a>
+                        </h2>
+                    </div>
+                    <small class="text-muted">
+                        in <a href="{{ .Site.BaseURL }}/{{ .Section }}">
+                            {{ with .Section }}{{ . | upper }}{{ end }}
+                        </a>
+                    </small>
+                    <small> | </small>
+                    <small class="text-muted">
+                        <time datetime="{{ .Lastmod.Format "Jan 01, 2006" }}">
+                            {{ .Lastmod.Format "Jan 01, 2006" }}
+                        </time>
+                    </small>
                 </div>
             </div>
         </div>
