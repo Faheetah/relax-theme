@@ -1,7 +1,7 @@
 {{ define "main" }}
-  <!-- Render Default Single Page -->
+<!-- Render Default Single Page -->
 
-<div class="text-justify mx-auto w-75">
+<div class="text-justify mx-auto single">
     <div>
         <h2>
             <a href="{{ .Permalink }}">{{ .Title | upper }}</a>
@@ -22,12 +22,15 @@
     </div>
 
     {{ if .Params.thumbnail }}
+    <div class="card">
+        <img src="{{ .Site.BaseURL }}{{ .Params.thumbnail }}" class="card-img-top" />
+    </div>
     <div class="image thumb-{{ .UniqueID }}"></div>
     {{ end }}
 
     <div>
         <article>
-        {{ .Content }}
+            {{ .Content }}
         </article>
 
         {{ with .PrevInSection }}

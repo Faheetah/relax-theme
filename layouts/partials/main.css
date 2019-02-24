@@ -12,6 +12,12 @@ html, body {
     color: #555555 !important;
 }
 
+@media (min-width: 768px) { 
+   .single {
+       width: 75%;
+   } 
+}
+
 a {
     color: #DD5555;
 }
@@ -40,7 +46,7 @@ hr {
 }
 
 .image {
-    height: 500px;
+    width: 100%;
 }
 
 article {
