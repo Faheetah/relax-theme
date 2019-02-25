@@ -9,10 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
 
     <link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}/css/bootstrap.min.css" />
-    <script src="{{ .Site.BaseURL }}/js/bootstrap.min.js"></script>
-    <style>
-      {{ replaceRE " +" " " (replaceRE "\n" "" (partial "main.css" .)) | safeCSS }}
-    </style>
+    <link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}/css/main.css" />
     {{ .Hugo.Generator }}
 </head>
 
