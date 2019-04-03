@@ -25,6 +25,7 @@
 
         <div class="container">
             <div>
+                {{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "/" }}
                 {{ range $index, $element := split $url "/" }}
                     {{ if ne $element "" }}
                         <li><a href="{{ . | absURL }}">{{ . }}</a></li>
