@@ -25,6 +25,7 @@
 
         <div class="container">
             <div>
+                breadcrumbs
                 {{ range $index, $element := split $url "/" }}
                     {{ if ne $element "" }}
                         <li><a href="{{ . | absURL }}">{{ . }}</a></li>
