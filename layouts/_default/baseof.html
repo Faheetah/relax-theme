@@ -24,6 +24,9 @@
     <main role="main">
 
         <div class="container">
+            {{ range where .Site.Pages "RelPermalink" .Params.parent }}
+                <a href="{{ .Permalink }}">⇡ {{ .Title }}</a>
+            {{ end }}
             <div>
                 {{ block "main" . }}{{ end }}
             </div>
